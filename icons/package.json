@@ -1,0 +1,39 @@
+{
+  "name": "@americojs/icons",
+  "version": "2.12.5",
+  "description": "Americo UI React icon library",
+  "author": "Kasper Kristensen <kasper@americojs.com>",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/americojs/americo.git",
+    "directory": "packages/design-system/icons"
+  },
+  "main": "./src/index.ts",
+  "module": "./src/index.ts",
+  "types": "./src/index.ts",
+  "sideEffects": false,
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "yarn build:bundles && yarn build:types",
+    "build:bundles": "rollup -c ./rollup.config.mjs",
+    "build:types": "yarn run -T tsc --emitDeclarationOnly",
+    "test": "../../../node_modules/.bin/vitest --run",
+    "test:watch": "../../../node_modules/.bin/vitest",
+    "test:coverage": "../../../node_modules/.bin/vitest --run --coverage",
+    "generate": "yarn run -T rimraf ./src/components && toolbox icons -o './src/components'"
+  },
+  "devDependencies": {
+    "@americojs/toolbox": "2.12.5",
+    "react": "^18.3.1"
+  },
+  "peerDependencies": {
+    "react": "^18.3.1"
+  },
+  "packageManager": "yarn@3.2.1",
+  "publishConfig": {
+    "access": "public"
+  }
+}
