@@ -2,14 +2,24 @@
 
 import { Check, TrianglesMini } from "@americojs/icons"
 import { cva } from "cva"
-import { Select as RadixSelect } from "radix-ui"
+import * as RadixSelect from "@radix-ui/react-select"
 import * as React from "react"
 
 import { clx } from "@/utils/clx"
 
-interface SelectProps
-  extends React.ComponentPropsWithoutRef<typeof RadixSelect.Root> {
+interface SelectProps {
   size?: "base" | "small"
+  children?: React.ReactNode
+  value?: string
+  defaultValue?: string
+  onValueChange?: (value: string) => void
+  open?: boolean
+  defaultOpen?: boolean
+  onOpenChange?: (open: boolean) => void
+  dir?: "ltr" | "rtl"
+  name?: string
+  disabled?: boolean
+  required?: boolean
 }
 
 type SelectContextValue = {

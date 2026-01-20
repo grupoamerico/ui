@@ -1,0 +1,27 @@
+{
+  "compilerOptions": {
+    "target": "ES2020",
+    "useDefineForClassFields": true,
+    "lib": ["ES2020", "DOM", "DOM.Iterable"],
+    "module": "ESNext",
+    "skipLibCheck": true,
+    "moduleResolution": "bundler",
+    "allowImportingTsExtensions": true,
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "noEmit": true,
+    "jsx": "react-jsx",
+    "strict": false,
+    "noUnusedLocals": false,
+    "noUnusedParameters": false,
+    "noFallthroughCasesInSwitch": true,
+    "paths": {
+      "@americojs/ui": ["../ui/src/index.ts"],
+      "@americojs/icons": ["../icons/src/index.ts"],
+      "@americojs/ui-preset": ["../ui-preset/src/index.ts"]
+    }
+  },
+  "include": ["src"],
+  "exclude": ["../icons", "../ui-preset"],
+  "references": [{ "path": "./tsconfig.node.json" }]
+}
