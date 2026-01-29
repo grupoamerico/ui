@@ -39,6 +39,22 @@ const buttonVariants = cva({
         "active:bg-ui-button-danger-pressed active:after:button-danger-pressed-gradient",
         "focus-visible:shadow-buttons-danger-focus"
       ),
+      outline: clx(
+        "after:hidden",
+        "text-ui-fg-base bg-transparent border border-ui-border-base",
+        "hover:bg-ui-bg-base-hover",
+        "active:bg-ui-bg-base-pressed",
+        "focus-visible:shadow-buttons-neutral-focus",
+        "disabled:!bg-transparent disabled:!shadow-none"
+      ),
+      ghost: clx(
+        "after:hidden",
+        "text-ui-fg-base bg-ui-button-transparent",
+        "hover:bg-ui-button-transparent-hover",
+        "active:bg-ui-button-transparent-pressed",
+        "focus-visible:shadow-buttons-neutral-focus focus-visible:bg-ui-bg-base",
+        "disabled:!bg-transparent disabled:!shadow-none"
+      ),
     },
     size: {
       small: "txt-compact-small-plus gap-x-1.5 px-2 py-1",
