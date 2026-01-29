@@ -297,4 +297,36 @@ const DropdownMenu = Object.assign(Root, {
   Hint,
 })
 
-export { DropdownMenu }
+// Named exports for shadcn-style imports
+const DropdownMenuTrigger = Trigger
+const DropdownMenuGroup = Group
+const DropdownMenuSubMenu = SubMenu
+const DropdownMenuSubMenuContent = SubMenuContent
+const DropdownMenuSubMenuTrigger = SubMenuTrigger
+const DropdownMenuContent = Content
+const DropdownMenuItem = Item
+const DropdownMenuCheckboxItem = CheckboxItem
+const DropdownMenuRadioGroup = RadioGroup
+const DropdownMenuRadioItem = RadioItem
+const DropdownMenuLabel = Label
+const DropdownMenuSeparator = Separator
+const DropdownMenuShortcut = Shortcut
+const DropdownMenuHint = Hint
+
+export {
+  DropdownMenu,
+  DropdownMenuTrigger,
+  DropdownMenuGroup,
+  DropdownMenuSubMenu,
+  DropdownMenuSubMenuContent,
+  DropdownMenuSubMenuTrigger,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuCheckboxItem,
+  DropdownMenuRadioGroup,
+  DropdownMenuRadioItem,
+  DropdownMenuLabel,
+  DropdownMenuSeparator,
+  DropdownMenuShortcut,
+  DropdownMenuHint,
+}

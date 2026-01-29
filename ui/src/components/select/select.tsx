@@ -260,4 +260,22 @@ const Select = Object.assign(Root, {
   Separator,
 })
 
-export { Select }
+// Named exports for shadcn-style imports
+const SelectGroup = Group
+const SelectValue = Value
+const SelectTrigger = Trigger
+const SelectContent = Content
+const SelectLabel = Label
+const SelectItem = Item
+const SelectSeparator = Separator
+
+export {
+  Select,
+  SelectGroup,
+  SelectValue,
+  SelectTrigger,
+  SelectContent,
+  SelectLabel,
+  SelectItem,
+  SelectSeparator,
+}

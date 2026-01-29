@@ -15,7 +15,23 @@ export { CurrencyInput } from "./components/currency-input"
 export { DatePicker } from "./components/date-picker"
 export { Divider } from "./components/divider"
 export { Drawer } from "./components/drawer"
-export { DropdownMenu } from "./components/dropdown-menu"
+export {
+  DropdownMenu,
+  DropdownMenuTrigger,
+  DropdownMenuGroup,
+  DropdownMenuSubMenu,
+  DropdownMenuSubMenuContent,
+  DropdownMenuSubMenuTrigger,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuCheckboxItem,
+  DropdownMenuRadioGroup,
+  DropdownMenuRadioItem,
+  DropdownMenuLabel,
+  DropdownMenuSeparator,
+  DropdownMenuShortcut,
+  DropdownMenuHint,
+} from "./components/dropdown-menu"
 export { FocusModal } from "./components/focus-modal"
 export { Heading } from "./components/heading"
 export { Hint } from "./components/hint"
@@ -31,11 +47,29 @@ export { ProgressAccordion } from "./components/progress-accordion"
 export { ProgressTabs } from "./components/progress-tabs"
 export { Prompt } from "./components/prompt"
 export { RadioGroup } from "./components/radio-group"
-export { Select } from "./components/select"
+export {
+  Select,
+  SelectGroup,
+  SelectValue,
+  SelectTrigger,
+  SelectContent,
+  SelectLabel,
+  SelectItem,
+  SelectSeparator,
+} from "./components/select"
 export { Skeleton } from "./components/skeleton"
 export { StatusBadge } from "./components/status-badge"
 export { Switch } from "./components/switch"
-export { Table } from "./components/table"
+export {
+  Table,
+  TableRow,
+  TableCell,
+  TableHeader,
+  TableHeaderCell,
+  TableHead,
+  TableBody,
+  TablePagination,
+} from "./components/table"
 export { Tabs } from "./components/tabs"
 export { Text } from "./components/text"
 export { Textarea } from "./components/textarea"

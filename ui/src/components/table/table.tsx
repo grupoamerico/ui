@@ -229,4 +229,22 @@ const Table = Object.assign(Root, {
   Pagination,
 })
 
-export { Table }
+// Named exports for shadcn-style imports
+const TableRow = Row
+const TableCell = Cell
+const TableHeader = Header
+const TableHeaderCell = HeaderCell
+const TableHead = HeaderCell // Alias for shadcn compatibility
+const TableBody = Body
+const TablePagination = Pagination
+
+export {
+  Table,
+  TableRow,
+  TableCell,
+  TableHeader,
+  TableHeaderCell,
+  TableHead,
+  TableBody,
+  TablePagination,
+}
