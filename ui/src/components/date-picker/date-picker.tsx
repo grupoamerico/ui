@@ -180,6 +180,10 @@ const DatePicker = React.forwardRef<HTMLDivElement, DatePickerProps>(
           ref={contentRef}
           {...dialogProps}
           className="flex flex-col divide-y p-0"
+          onEscapeKeyDown={(e) => {
+            e.stopPropagation()
+            state.setOpen(false)
+          }}
         >
           <div className="p-3">
             <InternalCalendar autoFocus {...calendarProps} />
