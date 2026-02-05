@@ -44,6 +44,8 @@ type DatePickerValueProps = {
   size?: "base" | "small"
   className?: string
   modal?: boolean
+  open?: boolean
+  onOpenChange?: (open: boolean) => void
 }
 
 interface DatePickerProps
@@ -90,6 +92,8 @@ const DatePicker = React.forwardRef<HTMLDivElement, DatePickerProps>(
       shouldCloseOnSelect = true,
       className,
       modal = false,
+      open: controlledOpen,
+      onOpenChange,
       ...props
     },
     ref
@@ -143,15 +147,29 @@ const DatePicker = React.forwardRef<HTMLDivElement, DatePickerProps>(
     useInteractOutside({
       ref: contentRef,
       onInteractOutside: () => {
-        state.setOpen(false)
+        handleOpenChange(false)
       },
     })
+
+    // Handle controlled/uncontrolled open state
+    const isOpen = controlledOpen !== undefined ? controlledOpen : state.isOpen
+    const handleOpenChange = React.useCallback((open: boolean) => {
+      state.setOpen(open)
+      onOpenChange?.(open)
+    }, [state, onOpenChange])
+
+    // Sync controlled open state with internal state
+    React.useEffect(() => {
+      if (controlledOpen !== undefined && controlledOpen !== state.isOpen) {
+        state.setOpen(controlledOpen)
+      }
+    }, [controlledOpen])
 
     const hasTime = props.granularity && HAS_TIME.has(props.granularity)
     const Icon = hasTime ? Clock : CalendarMini
 
     return (
-      <Popover modal={modal} open={state.isOpen} onOpenChange={state.setOpen}>
+      <Popover modal={modal} open={isOpen} onOpenChange={handleOpenChange}>
         <Popover.Anchor asChild>
           <div
             ref={ref}
@@ -182,7 +200,7 @@ const DatePicker = React.forwardRef<HTMLDivElement, DatePickerProps>(
           className="flex flex-col divide-y p-0"
           onEscapeKeyDown={(e) => {
             e.stopPropagation()
-            state.setOpen(false)
+            handleOpenChange(false)
           }}
         >
           <div className="p-3">
