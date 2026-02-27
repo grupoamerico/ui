@@ -4,6 +4,9 @@ import path from "path"
 
 export default defineConfig({
   plugins: [react()],
+  preview: {
+    allowedHosts: true,
+  },
   resolve: {
     alias: {
       "@grupoamerico/ui": path.resolve(__dirname, "../ui/src/index.ts"),
