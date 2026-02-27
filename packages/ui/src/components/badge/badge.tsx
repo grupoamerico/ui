@@ -96,11 +96,30 @@ const badgeSizeVariants = cva({
   },
 })
 
+type ShadcnVariant = "default" | "info" | "destructive" | "outline" | "success" | "orange" | "blue" | "yellow" | "purple"
+
+const variantToColor: Record<ShadcnVariant, VariantProps<typeof badgeColorVariants>["color"]> = {
+  default: "grey",
+  info: "blue",
+  destructive: "red",
+  outline: "grey",
+  success: "green",
+  orange: "orange",
+  blue: "blue",
+  yellow: "orange",
+  purple: "purple",
+}
+
 interface BadgeProps
   extends Omit<React.HTMLAttributes<HTMLSpanElement>, "color">,
     VariantProps<typeof badgeSizeVariants>,
     VariantProps<typeof badgeColorVariants> {
   asChild?: boolean
+  /**
+   * Shadcn-compatible variant prop. Maps to the `color` prop internally.
+   * If both `variant` and `color` are provided, `color` takes precedence.
+   */
+  variant?: ShadcnVariant | (string & {})
 }
 
 /**
@@ -121,7 +140,11 @@ const Badge = React.forwardRef<HTMLSpanElement, BadgeProps>(
       /**
        * The badge's color.
        */
-      color = "grey",
+      color,
+      /**
+       * Shadcn-compatible variant prop.
+       */
+      variant,
       /**
        * Whether to remove the wrapper `span` element and use the
        * passed child element instead.
@@ -132,13 +155,15 @@ const Badge = React.forwardRef<HTMLSpanElement, BadgeProps>(
     ref
   ) => {
     const Component = asChild ? Slot.Root : "span"
+    const resolvedColor = color ?? (variant && variant in variantToColor ? variantToColor[variant as ShadcnVariant] : "grey")
 
     return (
       <Component
         ref={ref}
         className={clx(
-          badgeColorVariants({ color }),
+          badgeColorVariants({ color: resolvedColor }),
           badgeSizeVariants({ size, rounded }),
+          variant === "outline" && "bg-transparent",
           className
         )}
         {...props}
