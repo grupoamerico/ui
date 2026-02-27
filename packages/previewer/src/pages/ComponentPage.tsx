@@ -25,8 +25,8 @@ export function ComponentPage() {
           setStories(parseStories(mod))
         }
       })
-      .catch(() => {
-        // Stories may not exist for all components
+      .catch((err) => {
+        console.error(`[previewer] Error loading stories for "${slug}":`, err)
       })
       .finally(() => setLoading(false))
   }, [slug])

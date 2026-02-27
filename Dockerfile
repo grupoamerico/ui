@@ -8,7 +8,7 @@ COPY packages/ui/package.json packages/ui/
 COPY packages/icons/package.json packages/icons/
 COPY packages/previewer/package.json packages/previewer/
 
-RUN npm ci --ignore-scripts
+RUN npm ci
 
 # Copy source code
 COPY scripts/ scripts/

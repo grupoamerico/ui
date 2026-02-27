@@ -76,7 +76,8 @@ export function parseStories(
           mergedArgs
         )
       }
-    } catch {
+    } catch (err) {
+      console.error(`[previewer] Error rendering story "${storyName}":`, err)
       element = null
     }
 

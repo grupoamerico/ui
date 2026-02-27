@@ -8,7 +8,10 @@
 
 // Eagerly load all component modules (for export discovery)
 const componentModules = import.meta.glob(
-  "../../../ui/src/components/*/index.ts",
+  [
+    "../../../ui/src/components/*/index.ts",
+    "../../../ui/src/components/*/index.tsx",
+  ],
   { eager: true }
 ) as Record<string, Record<string, unknown>>
 
@@ -23,8 +26,14 @@ const storyModules = import.meta.glob(
 export function getComponentModule(
   slug: string
 ): Record<string, unknown> | null {
-  const key = `../../../ui/src/components/${slug}/index.ts`
-  return (componentModules[key] as Record<string, unknown>) || null
+  // Try both .ts and .tsx extensions
+  const tsKey = `../../../ui/src/components/${slug}/index.ts`
+  const tsxKey = `../../../ui/src/components/${slug}/index.tsx`
+  return (
+    (componentModules[tsKey] as Record<string, unknown>) ||
+    (componentModules[tsxKey] as Record<string, unknown>) ||
+    null
+  )
 }
 
 /**
@@ -45,7 +54,7 @@ export async function loadStories(
 export function getComponentSlugs(): string[] {
   return Object.keys(componentModules)
     .map((key) => {
-      const match = key.match(/\/components\/([^/]+)\/index\.ts$/)
+      const match = key.match(/\/components\/([^/]+)\/index\.tsx?$/)
       return match ? match[1] : null
     })
     .filter(Boolean) as string[]
