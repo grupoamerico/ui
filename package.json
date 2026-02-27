@@ -4,6 +4,12 @@
   "private": true,
   "description": "Grupo Americo Design System",
   "workspaces": ["packages/ui", "packages/icons", "packages/previewer"],
+  "exports": {
+    "./preset": {
+      "import": "./packages/ui/src/preset/index.ts",
+      "require": "./packages/ui/src/preset/index.ts"
+    }
+  },
   "scripts": {
     "dev": "npm -w @grupoamerico/previewer run dev",
     "build": "npm run generate && npm -w @grupoamerico/icons run build && npm -w @grupoamerico/ui run build",
