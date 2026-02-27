@@ -100,7 +100,7 @@ export function SearchDialog() {
   }
 
   return (
-    <div className="fixed inset-0 z-50 flex items-start justify-center pt-[15vh]">
+    <div className="fixed inset-0 z-50 flex items-start justify-center pt-[20vh] lg:pt-[15vh] px-4 lg:px-0">
       <div
         className="fixed inset-0 bg-ui-bg-overlay"
         onClick={() => setOpen(false)}

@@ -10,8 +10,8 @@ function CopyIcon() {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
-      width="16"
-      height="16"
+      width="14"
+      height="14"
       viewBox="0 0 24 24"
       fill="none"
       stroke="currentColor"
@@ -29,8 +29,8 @@ function CheckIcon() {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
-      width="16"
-      height="16"
+      width="14"
+      height="14"
       viewBox="0 0 24 24"
       fill="none"
       stroke="currentColor"
@@ -53,8 +53,11 @@ function CodeBlock({ code }: { code: string }) {
   }
 
   return (
-    <div className="flex items-center justify-between w-full rounded-lg bg-ui-bg-component px-[18px] py-[14px]">
-      <code className="text-[13px] font-normal text-ui-fg-base" style={{ fontFamily: "'JetBrains Mono', 'Roboto Mono', monospace" }}>
+    <div className="flex items-center justify-between w-full rounded-lg bg-ui-bg-component px-3.5 py-3 lg:px-[18px] lg:py-[14px]">
+      <code
+        className="text-[11px] lg:text-[13px] font-normal text-ui-fg-base min-w-0 break-all"
+        style={{ fontFamily: "'JetBrains Mono', 'Roboto Mono', monospace" }}
+      >
         {code}
       </code>
       <button
@@ -72,50 +75,60 @@ export function Home() {
   return (
     <div>
       {/* Hero Section */}
-      <div className="px-12 pt-10 pb-0">
+      <div className="px-5 pt-6 lg:px-12 lg:pt-10">
         <div className="flex flex-col gap-3">
-          <h1 className="text-[28px] font-bold text-ui-fg-base" style={{ fontFamily: "Inter, sans-serif" }}>
-            Grupo Americo UI / Iconos
+          <h1
+            className="text-2xl lg:text-[28px] font-bold text-ui-fg-base"
+            style={{ fontFamily: "Inter, sans-serif" }}
+          >
+            Sistema de Diseno
           </h1>
+          <p className="text-sm lg:text-[15px] text-ui-fg-subtle leading-[1.5]">
+            Libreria de componentes React construida con Tailwind CSS y
+            primitivas de Radix UI.
+          </p>
         </div>
 
         {/* Stats Row */}
-        <div className="flex gap-5 mt-8">
-          <div className="flex-1 flex flex-col items-center gap-1 rounded-xl border border-ui-border-base bg-ui-bg-base p-6">
-            <span className="text-[34px] font-bold text-ui-fg-interactive">
+        <div className="flex gap-3 lg:gap-5 mt-6 lg:mt-8">
+          <div className="flex-1 flex flex-col items-center gap-1 rounded-xl border border-ui-border-base bg-ui-bg-base p-4 lg:p-6">
+            <span className="text-[28px] lg:text-[34px] font-bold text-ui-fg-interactive">
               {componentRegistry.length}
             </span>
-            <span className="text-[13px] text-ui-fg-subtle">Componentes</span>
+            <span className="text-[11px] lg:text-[13px] text-ui-fg-subtle">Componentes</span>
           </div>
-          <div className="flex-1 flex flex-col items-center gap-1 rounded-xl border border-ui-border-base bg-ui-bg-base p-6">
-            <span className="text-[34px] font-bold text-ui-fg-interactive">
+          <div className="flex-1 flex flex-col items-center gap-1 rounded-xl border border-ui-border-base bg-ui-bg-base p-4 lg:p-6">
+            <span className="text-[28px] lg:text-[34px] font-bold text-ui-fg-interactive">
               {iconRegistry.length}
             </span>
-            <span className="text-[13px] text-ui-fg-subtle">Iconos</span>
+            <span className="text-[11px] lg:text-[13px] text-ui-fg-subtle">Iconos</span>
           </div>
-          <div className="flex-1 flex flex-col items-center gap-1 rounded-xl border border-ui-border-base bg-ui-bg-base p-6">
-            <span className="text-[34px] font-bold text-ui-fg-interactive">
+          <div className="flex-1 flex flex-col items-center gap-1 rounded-xl border border-ui-border-base bg-ui-bg-base p-4 lg:p-6">
+            <span className="text-[28px] lg:text-[34px] font-bold text-ui-fg-interactive">
               {categories.length}
             </span>
-            <span className="text-[13px] text-ui-fg-subtle">Categorias</span>
+            <span className="text-[11px] lg:text-[13px] text-ui-fg-subtle">Categorias</span>
           </div>
         </div>
       </div>
 
       {/* Getting Started Section */}
-      <div className="px-12 pt-8">
-        <h2 className="text-[22px] font-semibold text-ui-fg-base" style={{ fontFamily: "Inter, sans-serif" }}>
+      <div className="px-5 pt-6 lg:px-12 lg:pt-8">
+        <h2
+          className="text-xl lg:text-[22px] font-semibold text-ui-fg-base"
+          style={{ fontFamily: "Inter, sans-serif" }}
+        >
           Primeros pasos
         </h2>
-        <div className="flex gap-5 mt-5">
-          <div className="flex-1 flex flex-col gap-4 rounded-xl border border-ui-border-base bg-ui-bg-base p-6">
-            <h3 className="text-base font-semibold text-ui-fg-base">
+        <div className="flex flex-col lg:flex-row gap-4 lg:gap-5 mt-4 lg:mt-5">
+          <div className="flex-1 flex flex-col gap-3 lg:gap-4 rounded-xl border border-ui-border-base bg-ui-bg-base p-4 lg:p-6">
+            <h3 className="text-sm lg:text-base font-semibold text-ui-fg-base">
               Instalacion
             </h3>
             <CodeBlock code="npm install @grupoamerico/ui @grupoamerico/icons" />
           </div>
-          <div className="flex-1 flex flex-col gap-4 rounded-xl border border-ui-border-base bg-ui-bg-base p-6">
-            <h3 className="text-base font-semibold text-ui-fg-base">
+          <div className="flex-1 flex flex-col gap-3 lg:gap-4 rounded-xl border border-ui-border-base bg-ui-bg-base p-4 lg:p-6">
+            <h3 className="text-sm lg:text-base font-semibold text-ui-fg-base">
               Preset de Tailwind
             </h3>
             <CodeBlock code="presets: [require('@grupoamerico/ui/preset')]" />
@@ -124,34 +137,37 @@ export function Home() {
       </div>
 
       {/* Components Section */}
-      <div className="px-12 pt-5 pb-12">
-        <h2 className="text-[22px] font-semibold text-ui-fg-base" style={{ fontFamily: "Inter, sans-serif" }}>
+      <div className="px-5 pt-6 pb-8 lg:px-12 lg:pt-5 lg:pb-12">
+        <h2
+          className="text-xl lg:text-[22px] font-semibold text-ui-fg-base"
+          style={{ fontFamily: "Inter, sans-serif" }}
+        >
           Componentes
         </h2>
-        <div className="grid grid-cols-3 gap-5 mt-5">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-3 lg:gap-5 mt-3 lg:mt-5">
           {categories.map((cat) => {
             const items = componentRegistry.filter((c) => c.category === cat)
             return (
               <div
                 key={cat}
-                className="flex flex-col gap-4 rounded-xl border border-ui-border-base bg-ui-bg-base p-6"
+                className="flex flex-col gap-3 lg:gap-4 rounded-xl border border-ui-border-base bg-ui-bg-base p-4 lg:p-6"
               >
                 {/* Card Header */}
                 <div className="flex items-center justify-between">
-                  <h3 className="text-base font-semibold text-ui-fg-base">
+                  <h3 className="text-sm lg:text-base font-semibold text-ui-fg-base">
                     {cat}
                   </h3>
-                  <span className="flex items-center justify-center rounded-full bg-ui-bg-highlight px-2.5 py-1 text-xs font-semibold text-ui-fg-interactive">
+                  <span className="flex items-center justify-center rounded-full bg-ui-bg-highlight px-2 py-0.5 lg:px-2.5 lg:py-1 text-[11px] lg:text-xs font-semibold text-ui-fg-interactive">
                     {items.length}
                   </span>
                 </div>
                 {/* Tags */}
-                <div className="flex flex-wrap gap-2">
+                <div className="flex flex-wrap gap-1.5 lg:gap-2">
                   {items.map((comp) => (
                     <Link
                       key={comp.slug}
                       to={`/components/${comp.slug}`}
-                      className="rounded-md bg-ui-bg-component px-3 py-[5px] text-xs font-medium text-ui-fg-subtle hover:bg-ui-bg-component-hover hover:text-ui-fg-base transition-fg"
+                      className="rounded-md bg-ui-bg-component px-2.5 py-1 lg:px-3 lg:py-[5px] text-[11px] lg:text-xs font-medium text-ui-fg-subtle hover:bg-ui-bg-component-hover hover:text-ui-fg-base transition-fg"
                     >
                       {comp.name}
                     </Link>
@@ -164,16 +180,16 @@ export function Home() {
       </div>
 
       {/* Icons Gallery Link */}
-      <div className="px-12 pb-12">
+      <div className="px-5 pb-8 lg:px-12 lg:pb-12">
         <Link
           to="/icons"
-          className="flex items-center justify-between rounded-xl border border-ui-border-base bg-ui-bg-base p-6 hover:bg-ui-bg-base-hover transition-fg group"
+          className="flex items-center justify-between rounded-xl border border-ui-border-base bg-ui-bg-base p-4 lg:p-6 hover:bg-ui-bg-base-hover transition-fg group"
         >
           <div>
-            <h3 className="text-base font-semibold text-ui-fg-base">
+            <h3 className="text-sm lg:text-base font-semibold text-ui-fg-base">
               Galeria de Iconos
             </h3>
-            <p className="text-sm text-ui-fg-subtle mt-1">
+            <p className="text-xs lg:text-sm text-ui-fg-subtle mt-1">
               Explora {iconRegistry.length} iconos con busqueda y copiar al
               portapapeles
             </p>

@@ -1,9 +1,21 @@
-import { NavLink } from "react-router-dom";
-import { componentRegistry, categories } from "../registry.generated";
+import { NavLink } from "react-router-dom"
+import { componentRegistry, categories } from "../registry.generated"
 
-export function Sidebar() {
+interface SidebarProps {
+  onNavigate?: () => void
+}
+
+export function Sidebar({ onNavigate }: SidebarProps) {
   return (
-    <aside className="flex w-[260px] shrink-0 flex-col bg-ui-bg-base h-screen border-r border-ui-border-base">
+    <aside className="flex w-[260px] lg:w-[260px] shrink-0 flex-col bg-ui-bg-base h-screen border-r border-ui-border-base">
+      {/* Logo Area */}
+      <div className="flex items-center gap-2.5 h-16 px-5 shrink-0">
+        <div className="w-2.5 h-2.5 rounded-full bg-ui-bg-interactive" />
+        <span className="text-base font-bold text-ui-fg-base tracking-[0.5px]">
+          AMERICO UI
+        </span>
+      </div>
+
       {/* Divider */}
       <div className="h-px bg-ui-border-base shrink-0" />
 
@@ -13,6 +25,7 @@ export function Sidebar() {
         <NavLink
           to="/"
           end
+          onClick={onNavigate}
           className={({ isActive }) =>
             `flex items-center gap-2 h-9 px-3 rounded-md text-sm font-medium shrink-0 transition-fg ${
               isActive
@@ -41,9 +54,9 @@ export function Sidebar() {
         {/* Component categories */}
         {categories.map((category) => {
           const items = componentRegistry.filter(
-            (c) => c.category === category,
-          );
-          if (items.length === 0) return null;
+            (c) => c.category === category
+          )
+          if (items.length === 0) return null
           return (
             <div key={category}>
               <div className="h-3" />
@@ -55,6 +68,7 @@ export function Sidebar() {
                 <NavLink
                   key={comp.slug}
                   to={`/components/${comp.slug}`}
+                  onClick={onNavigate}
                   className={({ isActive }) =>
                     `flex items-center h-8 px-3 rounded-md text-[13px] shrink-0 transition-fg ${
                       isActive
@@ -67,9 +81,9 @@ export function Sidebar() {
                 </NavLink>
               ))}
             </div>
-          );
+          )
         })}
       </nav>
     </aside>
-  );
+  )
 }

@@ -33,7 +33,7 @@ export function ComponentPage() {
 
   if (!entry) {
     return (
-      <div className="p-12">
+      <div className="p-5 lg:p-12">
         <p className="text-ui-fg-muted">Componente no encontrado: {slug}</p>
       </div>
     )
@@ -48,23 +48,23 @@ export function ComponentPage() {
   }
 
   return (
-    <div className="px-12 py-10 max-w-4xl space-y-8">
+    <div className="px-5 py-6 lg:px-12 lg:py-10 max-w-4xl space-y-6 lg:space-y-8">
       {/* Header */}
       <div className="space-y-3">
-        <div className="flex items-center gap-3">
-          <h1 className="text-[28px] font-bold text-ui-fg-base">
+        <div className="flex items-center gap-2 lg:gap-3">
+          <h1 className="text-2xl lg:text-[28px] font-bold text-ui-fg-base">
             {entry.name}
           </h1>
-          <span className="rounded-full bg-ui-bg-highlight px-2.5 py-1 text-xs font-semibold text-ui-fg-interactive">
+          <span className="rounded-full bg-ui-bg-highlight px-2 py-0.5 lg:px-2.5 lg:py-1 text-[11px] lg:text-xs font-semibold text-ui-fg-interactive">
             {entry.category}
           </span>
         </div>
 
         {/* Import statement */}
         <div className="flex items-center gap-2">
-          <div className="flex-1 flex items-center justify-between rounded-lg border border-ui-border-base bg-ui-bg-component px-[18px] py-[14px]">
+          <div className="flex-1 flex items-center justify-between rounded-lg border border-ui-border-base bg-ui-bg-component px-3.5 py-3 lg:px-[18px] lg:py-[14px]">
             <code
-              className="text-[13px] text-ui-fg-base"
+              className="text-[11px] lg:text-[13px] text-ui-fg-base min-w-0 break-all"
               style={{ fontFamily: "'JetBrains Mono', 'Roboto Mono', monospace" }}
             >
               {importStatement}
@@ -111,16 +111,16 @@ export function ComponentPage() {
 
       {/* Stories / Examples */}
       <div className="space-y-4">
-        <h2 className="text-[22px] font-semibold text-ui-fg-base">Ejemplos</h2>
+        <h2 className="text-xl lg:text-[22px] font-semibold text-ui-fg-base">Ejemplos</h2>
 
         {loading && (
-          <div className="rounded-xl border border-ui-border-base bg-ui-bg-base p-8 flex items-center justify-center">
+          <div className="rounded-xl border border-ui-border-base bg-ui-bg-base p-6 lg:p-8 flex items-center justify-center">
             <p className="text-sm text-ui-fg-muted">Cargando ejemplos...</p>
           </div>
         )}
 
         {!loading && stories.length === 0 && (
-          <div className="rounded-xl border border-ui-border-base bg-ui-bg-base p-8 flex items-center justify-center">
+          <div className="rounded-xl border border-ui-border-base bg-ui-bg-base p-6 lg:p-8 flex items-center justify-center">
             <p className="text-sm text-ui-fg-muted">
               No se encontraron ejemplos para este componente.
             </p>

@@ -78,7 +78,7 @@ export function IconGallery() {
       </p>
 
       {/* Grid */}
-      <div className="grid grid-cols-[repeat(auto-fill,minmax(100px,1fr))] gap-3">
+      <div className="grid grid-cols-[repeat(auto-fill,minmax(80px,1fr))] lg:grid-cols-[repeat(auto-fill,minmax(100px,1fr))] gap-2 lg:gap-3">
         {filtered.map((icon) => {
           const Icon = icon.component
           return (
