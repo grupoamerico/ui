@@ -45,8 +45,8 @@ export function Layout() {
               <line x1="4" x2="20" y1="18" y2="18" />
             </svg>
           </button>
-          <span className="text-base font-bold text-ui-fg-base tracking-[0.5px]">
-            AMERICO UI
+          <span className="text-base font-bold text-ui-fg-base">
+            Grupo Americo UI
           </span>
           <button
             onClick={() => setSearchOpen(true)}

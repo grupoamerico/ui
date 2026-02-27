@@ -68,18 +68,7 @@ const categoryIcons: Record<string, React.ReactNode> = {
 
 export function Sidebar({ onNavigate }: SidebarProps) {
   return (
-    <aside className="flex w-[260px] lg:w-[260px] shrink-0 flex-col bg-ui-bg-base h-screen border-r border-ui-border-base">
-      {/* Logo Area */}
-      <div className="flex items-center gap-2.5 h-16 px-5 shrink-0">
-        <div className="w-2.5 h-2.5 rounded-full bg-ui-bg-interactive" />
-        <span className="text-base font-bold text-ui-fg-base tracking-[0.5px]">
-          AMERICO UI
-        </span>
-      </div>
-
-      {/* Divider */}
-      <div className="h-px bg-ui-border-base shrink-0" />
-
+    <aside className="flex w-[260px] shrink-0 flex-col bg-ui-bg-base h-screen border-r border-ui-border-base">
       {/* Nav Container */}
       <nav className="flex-1 overflow-y-auto p-3 flex flex-col gap-0.5">
         {/* Inicio */}
