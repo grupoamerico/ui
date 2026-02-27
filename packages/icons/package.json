@@ -1,0 +1,30 @@
+{
+  "name": "@grupoamerico/icons",
+  "version": "3.0.0",
+  "description": "AMERICO UI React icon library",
+  "license": "MIT",
+  "main": "./src/index.ts",
+  "module": "./src/index.ts",
+  "types": "./src/index.ts",
+  "sideEffects": false,
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "npm run build:bundles && npm run build:types",
+    "build:bundles": "rollup -c ./rollup.config.mjs",
+    "build:types": "tsc --emitDeclarationOnly",
+    "test": "vitest --run",
+    "test:watch": "vitest",
+    "test:coverage": "vitest --run --coverage"
+  },
+  "devDependencies": {
+    "react": "^18.3.1"
+  },
+  "peerDependencies": {
+    "react": "^18.3.1"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}

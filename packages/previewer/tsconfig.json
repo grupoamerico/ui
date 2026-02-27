@@ -1,0 +1,31 @@
+{
+  "compilerOptions": {
+    "target": "ES2020",
+    "useDefineForClassFields": true,
+    "lib": ["ES2020", "DOM", "DOM.Iterable"],
+    "module": "ESNext",
+    "skipLibCheck": true,
+    "moduleResolution": "bundler",
+    "allowImportingTsExtensions": true,
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "noEmit": true,
+    "jsx": "react-jsx",
+    "strict": true,
+    "noUnusedLocals": false,
+    "noUnusedParameters": false,
+    "noFallthroughCasesInSwitch": true,
+    "paths": {
+      "@grupoamerico/ui": ["../ui/src/index.ts"],
+      "@grupoamerico/icons": ["../icons/src/index.ts"],
+      "@grupoamerico/ui/preset": ["../ui/src/preset/index.ts"],
+      "@/components/*": ["../ui/src/components/*"],
+      "@/hooks/*": ["../ui/src/hooks/*"],
+      "@/utils/*": ["../ui/src/utils/*"],
+      "@/types": ["../ui/src/types"],
+      "@/blocks/*": ["../ui/src/blocks/*"]
+    }
+  },
+  "include": ["src"],
+  "references": [{ "path": "./tsconfig.node.json" }]
+}
