@@ -142,7 +142,8 @@ const Badge = React.forwardRef<HTMLSpanElement, BadgeProps>(
        */
       color,
       /**
-       * Shadcn-compatible variant prop.
+       * Shadcn-compatible variant prop. When used, applies custom CRM colors
+       * from badgeVariants instead of the design system's color tokens.
        */
       variant,
       /**
@@ -155,15 +156,28 @@ const Badge = React.forwardRef<HTMLSpanElement, BadgeProps>(
     ref
   ) => {
     const Component = asChild ? Slot.Root : "span"
-    const resolvedColor = color ?? (variant && variant in variantToColor ? variantToColor[variant as ShadcnVariant] : "grey")
 
+    // When variant is used, apply badgeVariants (custom colors) + size only
+    if (variant && variant in variantToColor) {
+      return (
+        <Component
+          ref={ref}
+          className={clx(
+            badgeVariants({ variant: variant as ShadcnVariant }),
+            className
+          )}
+          {...props}
+        />
+      )
+    }
+
+    // Otherwise use the design system color tokens
     return (
       <Component
         ref={ref}
         className={clx(
-          badgeColorVariants({ color: resolvedColor }),
+          badgeColorVariants({ color: color ?? "grey" }),
           badgeSizeVariants({ size, rounded }),
-          variant === "outline" && "bg-transparent",
           className
         )}
         {...props}
