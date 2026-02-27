@@ -19,6 +19,13 @@ const buttonVariants = cva({
         "active:bg-ui-button-inverted-pressed active:after:button-inverted-pressed-gradient",
         "focus-visible:!shadow-buttons-inverted-focus"
       ),
+      // Alias: "default" maps to "primary" for shadcn compatibility
+      default: clx(
+        "shadow-buttons-inverted text-ui-contrast-fg-primary bg-ui-button-inverted after:button-inverted-gradient",
+        "hover:bg-ui-button-inverted-hover hover:after:button-inverted-hover-gradient",
+        "active:bg-ui-button-inverted-pressed active:after:button-inverted-pressed-gradient",
+        "focus-visible:!shadow-buttons-inverted-focus"
+      ),
       secondary: clx(
         "shadow-buttons-neutral text-ui-fg-base bg-ui-button-neutral after:button-neutral-gradient",
         "hover:bg-ui-button-neutral-hover hover:after:button-neutral-hover-gradient",
@@ -34,6 +41,13 @@ const buttonVariants = cva({
         "disabled:!bg-transparent disabled:!shadow-none"
       ),
       danger: clx(
+        "shadow-buttons-colored shadow-buttons-danger text-ui-fg-on-color bg-ui-button-danger after:button-danger-gradient",
+        "hover:bg-ui-button-danger-hover hover:after:button-danger-hover-gradient",
+        "active:bg-ui-button-danger-pressed active:after:button-danger-pressed-gradient",
+        "focus-visible:shadow-buttons-danger-focus"
+      ),
+      // Alias: "destructive" maps to "danger" for shadcn compatibility
+      destructive: clx(
         "shadow-buttons-colored shadow-buttons-danger text-ui-fg-on-color bg-ui-button-danger after:button-danger-gradient",
         "hover:bg-ui-button-danger-hover hover:after:button-danger-hover-gradient",
         "active:bg-ui-button-danger-pressed active:after:button-danger-pressed-gradient",
@@ -55,12 +69,21 @@ const buttonVariants = cva({
         "focus-visible:shadow-buttons-neutral-focus focus-visible:bg-ui-bg-base",
         "disabled:!bg-transparent disabled:!shadow-none"
       ),
+      link: clx(
+        "after:hidden",
+        "text-ui-fg-interactive bg-transparent underline-offset-4 hover:underline",
+        "disabled:!bg-transparent disabled:!shadow-none"
+      ),
     },
     size: {
       small: "txt-compact-small-plus gap-x-1.5 px-2 py-1",
+      sm: "txt-compact-small-plus gap-x-1.5 px-2 py-1",
       base: "txt-compact-small-plus gap-x-1.5 px-3 py-1.5",
+      default: "txt-compact-small-plus gap-x-1.5 px-3 py-1.5",
       large: "txt-compact-medium-plus gap-x-1.5 px-4 py-2.5",
+      lg: "txt-compact-medium-plus gap-x-1.5 px-4 py-2.5",
       xlarge: "txt-compact-large-plus gap-x-1.5 px-5 py-3.5",
+      icon: "h-9 w-9 p-0",
     },
   },
   defaultVariants: {

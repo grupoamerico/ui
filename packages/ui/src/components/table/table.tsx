@@ -220,12 +220,41 @@ const Pagination = React.forwardRef<HTMLDivElement, TablePaginationProps>(
 )
 Pagination.displayName = "Table.Pagination"
 
+const Footer = React.forwardRef<
+  HTMLTableSectionElement,
+  React.HTMLAttributes<HTMLTableSectionElement>
+>(({ className, ...props }, ref) => (
+  <tfoot
+    ref={ref}
+    className={clx(
+      "border-t bg-muted/50 font-medium [&>tr]:last:border-b-0",
+      className
+    )}
+    {...props}
+  />
+))
+Footer.displayName = "Table.Footer"
+
+const Caption = React.forwardRef<
+  HTMLTableCaptionElement,
+  React.HTMLAttributes<HTMLTableCaptionElement>
+>(({ className, ...props }, ref) => (
+  <caption
+    ref={ref}
+    className={clx("mt-4 text-sm text-muted-foreground", className)}
+    {...props}
+  />
+))
+Caption.displayName = "Table.Caption"
+
 const Table = Object.assign(Root, {
   Row,
   Cell,
   Header,
   HeaderCell,
   Body,
+  Footer,
+  Caption,
   Pagination,
 })
 
@@ -236,6 +265,8 @@ const TableHeader = Header
 const TableHeaderCell = HeaderCell
 const TableHead = HeaderCell // Alias for shadcn compatibility
 const TableBody = Body
+const TableFooter = Footer
+const TableCaption = Caption
 const TablePagination = Pagination
 
 export {
@@ -246,5 +277,7 @@ export {
   TableHeaderCell,
   TableHead,
   TableBody,
+  TableFooter,
+  TableCaption,
   TablePagination,
 }

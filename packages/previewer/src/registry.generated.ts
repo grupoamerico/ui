@@ -24,6 +24,12 @@ export const componentRegistry: ComponentEntry[] = [
     "hasStories": true
   },
   {
+    "slug": "alert-dialog",
+    "name": "AlertDialog",
+    "category": "Otros",
+    "hasStories": false
+  },
+  {
     "slug": "avatar",
     "name": "Avatar",
     "category": "Visualizacion de datos",
@@ -36,16 +42,34 @@ export const componentRegistry: ComponentEntry[] = [
     "hasStories": true
   },
   {
+    "slug": "breadcrumb",
+    "name": "Breadcrumb",
+    "category": "Otros",
+    "hasStories": false
+  },
+  {
     "slug": "button",
     "name": "Button",
     "category": "Formularios",
     "hasStories": true
   },
   {
+    "slug": "button-group",
+    "name": "ButtonGroup",
+    "category": "Otros",
+    "hasStories": false
+  },
+  {
     "slug": "calendar",
     "name": "Calendar",
     "category": "Visualizacion de datos",
     "hasStories": true
+  },
+  {
+    "slug": "card",
+    "name": "Card",
+    "category": "Otros",
+    "hasStories": false
   },
   {
     "slug": "checkbox",
@@ -84,6 +108,12 @@ export const componentRegistry: ComponentEntry[] = [
     "hasStories": true
   },
   {
+    "slug": "context-menu",
+    "name": "ContextMenu",
+    "category": "Otros",
+    "hasStories": false
+  },
+  {
     "slug": "copy",
     "name": "Copy",
     "category": "Visualizacion de datos",
@@ -102,6 +132,18 @@ export const componentRegistry: ComponentEntry[] = [
     "hasStories": true
   },
   {
+    "slug": "delete-confirm-dialog",
+    "name": "DeleteConfirmDialog",
+    "category": "Otros",
+    "hasStories": false
+  },
+  {
+    "slug": "dialog",
+    "name": "Dialog",
+    "category": "Otros",
+    "hasStories": false
+  },
+  {
     "slug": "divider",
     "name": "Divider",
     "category": "Disposicion",
@@ -118,6 +160,12 @@ export const componentRegistry: ComponentEntry[] = [
     "name": "DropdownMenu",
     "category": "Superposiciones",
     "hasStories": true
+  },
+  {
+    "slug": "empty",
+    "name": "Empty",
+    "category": "Otros",
+    "hasStories": false
   },
   {
     "slug": "focus-modal",
@@ -180,9 +228,21 @@ export const componentRegistry: ComponentEntry[] = [
     "hasStories": true
   },
   {
+    "slug": "menubar",
+    "name": "Menubar",
+    "category": "Otros",
+    "hasStories": false
+  },
+  {
     "slug": "popover",
     "name": "Popover",
     "category": "Superposiciones",
+    "hasStories": false
+  },
+  {
+    "slug": "progress",
+    "name": "Progress",
+    "category": "Otros",
     "hasStories": false
   },
   {
@@ -214,6 +274,18 @@ export const componentRegistry: ComponentEntry[] = [
     "name": "Select",
     "category": "Formularios",
     "hasStories": true
+  },
+  {
+    "slug": "sheet",
+    "name": "Sheet",
+    "category": "Otros",
+    "hasStories": false
+  },
+  {
+    "slug": "sidebar",
+    "name": "Sidebar",
+    "category": "Otros",
+    "hasStories": false
   },
   {
     "slug": "skeleton",
@@ -274,6 +346,12 @@ export const componentRegistry: ComponentEntry[] = [
     "name": "Tooltip",
     "category": "Superposiciones",
     "hasStories": true
+  },
+  {
+    "slug": "unsaved-changes-dialog",
+    "name": "UnsavedChangesDialog",
+    "category": "Otros",
+    "hasStories": false
   }
 ]
 

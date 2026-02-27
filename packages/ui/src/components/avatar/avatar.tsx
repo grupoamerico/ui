@@ -183,4 +183,50 @@ const Avatar = React.forwardRef<
 )
 Avatar.displayName = "Avatar"
 
-export { Avatar }
+/**
+ * Compound Avatar components for shadcn-style usage.
+ * Usage: <AvatarRoot><AvatarImage src="..." /><AvatarFallback>AB</AvatarFallback></AvatarRoot>
+ */
+const AvatarRoot = React.forwardRef<
+  React.ElementRef<typeof RadixAvatar.Root>,
+  React.ComponentPropsWithoutRef<typeof RadixAvatar.Root>
+>(({ className, ...props }, ref) => (
+  <RadixAvatar.Root
+    ref={ref}
+    className={clx(
+      "relative flex h-10 w-10 shrink-0 overflow-hidden rounded-full",
+      className
+    )}
+    {...props}
+  />
+))
+AvatarRoot.displayName = "AvatarRoot"
+
+const AvatarImage = React.forwardRef<
+  React.ElementRef<typeof RadixAvatar.Image>,
+  React.ComponentPropsWithoutRef<typeof RadixAvatar.Image>
+>(({ className, ...props }, ref) => (
+  <RadixAvatar.Image
+    ref={ref}
+    className={clx("aspect-square h-full w-full", className)}
+    {...props}
+  />
+))
+AvatarImage.displayName = "AvatarImage"
+
+const AvatarFallback = React.forwardRef<
+  React.ElementRef<typeof RadixAvatar.Fallback>,
+  React.ComponentPropsWithoutRef<typeof RadixAvatar.Fallback>
+>(({ className, ...props }, ref) => (
+  <RadixAvatar.Fallback
+    ref={ref}
+    className={clx(
+      "flex h-full w-full items-center justify-center rounded-full bg-muted",
+      className
+    )}
+    {...props}
+  />
+))
+AvatarFallback.displayName = "AvatarFallback"
+
+export { Avatar, AvatarRoot, AvatarImage, AvatarFallback }
