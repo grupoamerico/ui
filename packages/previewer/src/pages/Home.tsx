@@ -81,12 +81,8 @@ export function Home() {
             className="text-2xl lg:text-[28px] font-bold text-ui-fg-base"
             style={{ fontFamily: "Inter, sans-serif" }}
           >
-            Sistema de Diseno
+            Grupo Americo UI / Iconos
           </h1>
-          <p className="text-sm lg:text-[15px] text-ui-fg-subtle leading-[1.5]">
-            Libreria de componentes React construida con Tailwind CSS y
-            primitivas de Radix UI.
-          </p>
         </div>
 
         {/* Stats Row */}
