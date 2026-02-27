@@ -9,24 +9,38 @@ interface SearchResult {
   category?: string
 }
 
-export function SearchDialog() {
-  const [open, setOpen] = useState(false)
+interface SearchDialogProps {
+  open?: boolean
+  onOpenChange?: (open: boolean) => void
+}
+
+export function SearchDialog({ open: controlledOpen, onOpenChange }: SearchDialogProps = {}) {
+  const [internalOpen, setInternalOpen] = useState(false)
   const [query, setQuery] = useState("")
   const navigate = useNavigate()
   const inputRef = useRef<HTMLInputElement>(null)
+
+  const open = controlledOpen !== undefined ? controlledOpen : internalOpen
+
+  const setOpen = useCallback((value: boolean) => {
+    if (onOpenChange) {
+      onOpenChange(value)
+    }
+    setInternalOpen(value)
+  }, [onOpenChange])
 
   const handleKeyDown = useCallback(
     (e: KeyboardEvent) => {
       if ((e.metaKey || e.ctrlKey) && e.key === "k") {
         e.preventDefault()
-        setOpen((prev) => !prev)
+        setOpen(!open)
       }
       if (e.key === "Escape" && open) {
         e.stopPropagation()
         setOpen(false)
       }
     },
-    [open]
+    [open, setOpen]
   )
 
   useEffect(() => {
@@ -71,7 +85,8 @@ export function SearchDialog() {
     return [...componentResults, ...iconResults]
   }, [query])
 
-  if (!open) {
+  // When used as desktop trigger button (no controlledOpen)
+  if (!open && controlledOpen === undefined) {
     return (
       <button
         onClick={() => setOpen(true)}
@@ -99,8 +114,10 @@ export function SearchDialog() {
     )
   }
 
+  if (!open) return null
+
   return (
-    <div className="fixed inset-0 z-50 flex items-start justify-center pt-[20vh] lg:pt-[15vh] px-4 lg:px-0">
+    <div className="fixed inset-0 z-[60] flex items-start justify-center pt-[20vh] lg:pt-[15vh] px-4 lg:px-0">
       <div
         className="fixed inset-0 bg-ui-bg-overlay"
         onClick={() => setOpen(false)}

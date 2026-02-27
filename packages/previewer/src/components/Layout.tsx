@@ -6,6 +6,7 @@ import { SearchDialog } from "./SearchDialog"
 
 export function Layout() {
   const [sidebarOpen, setSidebarOpen] = useState(false)
+  const [searchOpen, setSearchOpen] = useState(false)
   const location = useLocation()
 
   // Close sidebar on navigation
@@ -48,10 +49,7 @@ export function Layout() {
             AMERICO UI
           </span>
           <button
-            onClick={() => {
-              // Trigger search dialog via keyboard event
-              document.dispatchEvent(new KeyboardEvent("keydown", { key: "k", ctrlKey: true }))
-            }}
+            onClick={() => setSearchOpen(true)}
             className="flex items-center justify-center w-9 h-9 rounded-lg text-ui-fg-base hover:bg-ui-bg-base-hover transition-fg"
           >
             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -72,6 +70,9 @@ export function Layout() {
           <Outlet />
         </main>
       </div>
+
+      {/* Mobile Search Dialog */}
+      <SearchDialog open={searchOpen} onOpenChange={setSearchOpen} />
     </div>
   )
 }
