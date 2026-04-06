@@ -69,23 +69,19 @@ export function parseStories(
 
     let element: React.ReactElement | null = null
 
-    try {
-      if (typeof story.render === "function") {
-        // Pattern 1: story-level render function
-        element = story.render(mergedArgs)
-      } else if (typeof metaRender === "function") {
-        // Pattern 2: meta-level render function
-        element = metaRender(mergedArgs)
-      } else if (Component) {
-        // Pattern 3: simple args on component
-        element = React.createElement(
-          Component as React.ComponentType<Record<string, unknown>>,
-          mergedArgs
-        )
-      }
-    } catch (err) {
-      console.error(`[previewer] Error rendering story "${storyName}":`, err)
-      element = null
+    const renderFn = story.render || metaRender
+
+    if (typeof renderFn === "function") {
+      // Wrap the render function as a React component so hooks work correctly.
+      // Calling render() directly outside React's cycle breaks hooks.
+      const StoryComponent = () => renderFn(mergedArgs)
+      element = React.createElement(StoryComponent)
+    } else if (Component) {
+      // Pattern 3: simple args on component
+      element = React.createElement(
+        Component as React.ComponentType<Record<string, unknown>>,
+        mergedArgs
+      )
     }
 
     const code = codeLookup[exportName] || ""
