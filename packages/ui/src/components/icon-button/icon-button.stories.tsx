@@ -81,3 +81,48 @@ export const IsLoading: Story = {
     isLoading: true,
   },
 }
+
+export const TwoXSmallPrimary: Story = {
+  args: {
+    variant: "primary",
+    size: "2xsmall",
+    children: <Plus />,
+  },
+}
+
+export const XSmallPrimary: Story = {
+  args: {
+    variant: "primary",
+    size: "xsmall",
+    children: <Plus />,
+  },
+}
+
+export const SmallPrimary: Story = {
+  args: {
+    variant: "primary",
+    size: "small",
+    children: <Plus />,
+  },
+}
+
+export const SmallTransparent: Story = {
+  args: {
+    variant: "transparent",
+    size: "small",
+    children: <Plus />,
+  },
+}
+
+export const AllSizes: Story = {
+  render: () => (
+    <div className="flex items-center gap-2">
+      <IconButton variant="primary" size="2xsmall"><Plus /></IconButton>
+      <IconButton variant="primary" size="xsmall"><Plus /></IconButton>
+      <IconButton variant="primary" size="small"><Plus /></IconButton>
+      <IconButton variant="primary" size="base"><Plus /></IconButton>
+      <IconButton variant="primary" size="large"><Plus /></IconButton>
+      <IconButton variant="primary" size="xlarge"><Plus /></IconButton>
+    </div>
+  ),
+}

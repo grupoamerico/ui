@@ -76,3 +76,65 @@ export const XLarge: Story = {
     size: "xlarge",
   },
 }
+
+export const Outline: Story = {
+  args: {
+    children: "Action",
+    variant: "outline",
+  },
+}
+
+export const Ghost: Story = {
+  args: {
+    children: "Action",
+    variant: "ghost",
+  },
+}
+
+export const Link: Story = {
+  args: {
+    children: "Action",
+    variant: "link",
+  },
+}
+
+export const Small: Story = {
+  args: {
+    children: "Action",
+    size: "small",
+  },
+}
+
+export const IconSize: Story = {
+  render: () => (
+    <Button size="icon" variant="secondary">
+      <PlusMini />
+    </Button>
+  ),
+}
+
+export const AllVariants: Story = {
+  render: () => (
+    <div className="flex flex-wrap items-center gap-2">
+      <Button variant="primary">Primary</Button>
+      <Button variant="secondary">Secondary</Button>
+      <Button variant="transparent">Transparent</Button>
+      <Button variant="danger">Danger</Button>
+      <Button variant="outline">Outline</Button>
+      <Button variant="ghost">Ghost</Button>
+      <Button variant="link">Link</Button>
+    </div>
+  ),
+}
+
+export const AllSizes: Story = {
+  render: () => (
+    <div className="flex flex-wrap items-center gap-2">
+      <Button size="small">Small</Button>
+      <Button size="base">Base</Button>
+      <Button size="large">Large</Button>
+      <Button size="xlarge">XLarge</Button>
+      <Button size="icon"><PlusMini /></Button>
+    </div>
+  ),
+}

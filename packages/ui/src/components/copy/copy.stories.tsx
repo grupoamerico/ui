@@ -31,3 +31,10 @@ export const AsChild: Story = {
     children: <Button className="text-ui-fg-on-color">Copy</Button>,
   },
 }
+
+export const Mini: Story = {
+  args: {
+    content: "Hello world",
+    variant: "mini",
+  },
+}

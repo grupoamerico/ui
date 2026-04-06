@@ -1,4 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react"
+import * as React from "react"
 
 import { Text } from "./text"
 
@@ -141,4 +142,63 @@ export const XLargePlusMono: Story = {
     family: "mono",
     children: "I am a paragraph",
   },
+}
+
+export const XSmallRegularSans: Story = {
+  args: {
+    size: "xsmall",
+    weight: "regular",
+    family: "sans",
+    children: "I am a paragraph",
+  },
+}
+
+export const SmallRegularSans: Story = {
+  args: {
+    size: "small",
+    weight: "regular",
+    family: "sans",
+    children: "I am a paragraph",
+  },
+}
+
+export const SmallPlusSans: Story = {
+  args: {
+    size: "small",
+    weight: "plus",
+    family: "sans",
+    children: "I am a paragraph",
+  },
+}
+
+export const BaseCompactSans: Story = {
+  args: {
+    size: "base",
+    weight: "regular",
+    family: "sans",
+    leading: "compact",
+    children: "I am a compact paragraph with tighter line-height for dense layouts.",
+  },
+}
+
+export const LargeCompactSans: Story = {
+  args: {
+    size: "large",
+    weight: "regular",
+    family: "sans",
+    leading: "compact",
+    children: "I am a compact paragraph with tighter line-height for dense layouts.",
+  },
+}
+
+export const AllSizes: Story = {
+  render: () => (
+    <div className="flex flex-col gap-2">
+      <Text size="xsmall">XSmall text</Text>
+      <Text size="small">Small text</Text>
+      <Text size="base">Base text</Text>
+      <Text size="large">Large text</Text>
+      <Text size="xlarge">XLarge text</Text>
+    </div>
+  ),
 }

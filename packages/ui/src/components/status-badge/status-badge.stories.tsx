@@ -1,4 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react"
+import * as React from "react"
 
 import { StatusBadge } from "./status-badge"
 
@@ -47,4 +48,24 @@ export const Orange: Story = {
     children: "Requires Attention",
     color: "orange",
   },
+}
+
+export const Purple: Story = {
+  args: {
+    children: "In Review",
+    color: "purple",
+  },
+}
+
+export const AllColors: Story = {
+  render: () => (
+    <div className="flex flex-wrap gap-2">
+      <StatusBadge color="grey">Draft</StatusBadge>
+      <StatusBadge color="green">Published</StatusBadge>
+      <StatusBadge color="red">Expired</StatusBadge>
+      <StatusBadge color="blue">Pending</StatusBadge>
+      <StatusBadge color="orange">Attention</StatusBadge>
+      <StatusBadge color="purple">In Review</StatusBadge>
+    </div>
+  ),
 }

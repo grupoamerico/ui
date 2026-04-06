@@ -37,3 +37,10 @@ export const Dashed: Story = {
     variant: "dashed",
   },
 }
+
+export const VerticalDashed: Story = {
+  args: {
+    orientation: "vertical",
+    variant: "dashed",
+  },
+}

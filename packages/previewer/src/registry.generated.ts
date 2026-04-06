@@ -27,7 +27,7 @@ export const componentRegistry: ComponentEntry[] = [
     "slug": "alert-dialog",
     "name": "AlertDialog",
     "category": "Otros",
-    "hasStories": false
+    "hasStories": true
   },
   {
     "slug": "avatar",
@@ -45,7 +45,7 @@ export const componentRegistry: ComponentEntry[] = [
     "slug": "breadcrumb",
     "name": "Breadcrumb",
     "category": "Otros",
-    "hasStories": false
+    "hasStories": true
   },
   {
     "slug": "button",
@@ -57,7 +57,7 @@ export const componentRegistry: ComponentEntry[] = [
     "slug": "button-group",
     "name": "ButtonGroup",
     "category": "Otros",
-    "hasStories": false
+    "hasStories": true
   },
   {
     "slug": "calendar",
@@ -69,7 +69,7 @@ export const componentRegistry: ComponentEntry[] = [
     "slug": "card",
     "name": "Card",
     "category": "Otros",
-    "hasStories": false
+    "hasStories": true
   },
   {
     "slug": "checkbox",
@@ -111,7 +111,7 @@ export const componentRegistry: ComponentEntry[] = [
     "slug": "context-menu",
     "name": "ContextMenu",
     "category": "Otros",
-    "hasStories": false
+    "hasStories": true
   },
   {
     "slug": "copy",
@@ -135,13 +135,13 @@ export const componentRegistry: ComponentEntry[] = [
     "slug": "delete-confirm-dialog",
     "name": "DeleteConfirmDialog",
     "category": "Otros",
-    "hasStories": false
+    "hasStories": true
   },
   {
     "slug": "dialog",
     "name": "Dialog",
     "category": "Otros",
-    "hasStories": false
+    "hasStories": true
   },
   {
     "slug": "divider",
@@ -165,7 +165,7 @@ export const componentRegistry: ComponentEntry[] = [
     "slug": "empty",
     "name": "Empty",
     "category": "Otros",
-    "hasStories": false
+    "hasStories": true
   },
   {
     "slug": "focus-modal",
@@ -231,19 +231,19 @@ export const componentRegistry: ComponentEntry[] = [
     "slug": "menubar",
     "name": "Menubar",
     "category": "Otros",
-    "hasStories": false
+    "hasStories": true
   },
   {
     "slug": "popover",
     "name": "Popover",
     "category": "Superposiciones",
-    "hasStories": false
+    "hasStories": true
   },
   {
     "slug": "progress",
     "name": "Progress",
     "category": "Otros",
-    "hasStories": false
+    "hasStories": true
   },
   {
     "slug": "progress-accordion",
@@ -279,19 +279,19 @@ export const componentRegistry: ComponentEntry[] = [
     "slug": "sheet",
     "name": "Sheet",
     "category": "Otros",
-    "hasStories": false
+    "hasStories": true
   },
   {
     "slug": "sidebar",
     "name": "Sidebar",
     "category": "Otros",
-    "hasStories": false
+    "hasStories": true
   },
   {
     "slug": "skeleton",
     "name": "Skeleton",
     "category": "Retroalimentacion",
-    "hasStories": false
+    "hasStories": true
   },
   {
     "slug": "status-badge",
@@ -351,7 +351,7 @@ export const componentRegistry: ComponentEntry[] = [
     "slug": "unsaved-changes-dialog",
     "name": "UnsavedChangesDialog",
     "category": "Otros",
-    "hasStories": false
+    "hasStories": true
   }
 ]
 
