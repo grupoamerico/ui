@@ -9,6 +9,7 @@
  */
 
 import React from "react"
+import { elementToJsx } from "./jsx-serializer"
 
 interface StoryMeta {
   title?: string
@@ -35,6 +36,7 @@ interface StoryDef {
 export interface ParsedStory {
   name: string
   element: React.ReactElement | null
+  code: string
 }
 
 /**
@@ -61,6 +63,7 @@ export function parseStories(
     const mergedArgs = { ...defaultArgs, ...story.args }
 
     let element: React.ReactElement | null = null
+    let code = ""
 
     try {
       if (typeof story.render === "function") {
@@ -76,12 +79,17 @@ export function parseStories(
           mergedArgs
         )
       }
+
+      // Generate JSX code from the rendered element
+      if (element) {
+        code = elementToJsx(element)
+      }
     } catch (err) {
       console.error(`[previewer] Error rendering story "${storyName}":`, err)
       element = null
     }
 
-    stories.push({ name: storyName, element })
+    stories.push({ name: storyName, element, code })
   }
 
   return stories

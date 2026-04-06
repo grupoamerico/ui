@@ -129,7 +129,7 @@ export function ComponentPage() {
 
         <div className="grid gap-4">
           {stories.map((story) => (
-            <ComponentPreview key={story.name} name={story.name}>
+            <ComponentPreview key={story.name} name={story.name} code={story.code}>
               {story.element}
             </ComponentPreview>
           ))}
