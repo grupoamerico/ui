@@ -9,7 +9,7 @@
  */
 
 import React from "react"
-import { elementToJsx } from "./jsx-serializer"
+import { extractStoryCodes } from "./source-extractor"
 
 interface StoryMeta {
   title?: string
@@ -41,14 +41,19 @@ export interface ParsedStory {
 
 /**
  * Parse a stories module and return renderable elements.
+ * Optionally accepts the raw source text to extract real code snippets.
  */
 export function parseStories(
-  storiesModule: Record<string, unknown>
+  storiesModule: Record<string, unknown>,
+  rawSource?: string | null
 ): ParsedStory[] {
   const meta = storiesModule.default as StoryMeta | undefined
   const Component = meta?.component
   const defaultArgs = meta?.args || {}
   const metaRender = meta?.render
+
+  // Extract code from raw source if available
+  const codeLookup = rawSource ? extractStoryCodes(rawSource) : {}
 
   const stories: ParsedStory[] = []
 
@@ -63,7 +68,6 @@ export function parseStories(
     const mergedArgs = { ...defaultArgs, ...story.args }
 
     let element: React.ReactElement | null = null
-    let code = ""
 
     try {
       if (typeof story.render === "function") {
@@ -79,15 +83,12 @@ export function parseStories(
           mergedArgs
         )
       }
-
-      // Generate JSX code from the rendered element
-      if (element) {
-        code = elementToJsx(element)
-      }
     } catch (err) {
       console.error(`[previewer] Error rendering story "${storyName}":`, err)
       element = null
     }
+
+    const code = codeLookup[exportName] || ""
 
     stories.push({ name: storyName, element, code })
   }

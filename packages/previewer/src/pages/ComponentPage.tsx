@@ -1,7 +1,7 @@
 import { useParams } from "react-router-dom"
 import { useState, useEffect } from "react"
 import { componentRegistry } from "../registry.generated"
-import { loadStories } from "../lib/component-loader"
+import { loadStories, loadStorySource } from "../lib/component-loader"
 import { parseStories, type ParsedStory } from "../lib/story-adapter"
 import { ComponentPreview } from "../components/ComponentPreview"
 
@@ -19,10 +19,10 @@ export function ComponentPage() {
     setLoading(true)
     setStories([])
 
-    loadStories(slug)
-      .then((mod) => {
+    Promise.all([loadStories(slug), loadStorySource(slug)])
+      .then(([mod, source]) => {
         if (mod) {
-          setStories(parseStories(mod))
+          setStories(parseStories(mod, source))
         }
       })
       .catch((err) => {

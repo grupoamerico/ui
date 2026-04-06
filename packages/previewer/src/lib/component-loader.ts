@@ -20,6 +20,12 @@ const storyModules = import.meta.glob(
   "../../../ui/src/components/*/*.stories.tsx"
 ) as Record<string, () => Promise<Record<string, unknown>>>
 
+// Lazily load story source files as raw text
+const storySourceModules = import.meta.glob(
+  "../../../ui/src/components/*/*.stories.tsx",
+  { query: "?raw", import: "default" }
+) as Record<string, () => Promise<string>>
+
 /**
  * Get all exported members from a component module.
  */
@@ -46,6 +52,18 @@ export async function loadStories(
   const loader = storyModules[key]
   if (!loader) return null
   return (await loader()) as Record<string, unknown>
+}
+
+/**
+ * Load raw source text of a stories file (lazy).
+ */
+export async function loadStorySource(
+  slug: string
+): Promise<string | null> {
+  const key = `../../../ui/src/components/${slug}/${slug}.stories.tsx`
+  const loader = storySourceModules[key]
+  if (!loader) return null
+  return await loader()
 }
 
 /**
