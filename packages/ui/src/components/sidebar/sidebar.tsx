@@ -5,8 +5,8 @@ import { Slot } from "radix-ui"
 import { cva, type VariantProps } from "cva"
 import * as React from "react"
 
-import { Button } from "@/components/button"
-import { Divider } from "@/components/divider"
+import { Button, type ButtonProps } from "@/components/button"
+import { Divider, type DividerProps } from "@/components/divider"
 import { Skeleton } from "@/components/skeleton"
 import {
   Sheet,

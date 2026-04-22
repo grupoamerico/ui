@@ -90,14 +90,19 @@ const triggerVariants = cva({
   },
 })
 
+interface SelectTriggerProps
+  extends React.ComponentPropsWithoutRef<typeof RadixSelect.Trigger> {
+  hideIcon?: boolean
+}
+
 /**
  * The trigger that toggles the select.
  * It's based on [Radix UI Select Trigger](https://www.radix-ui.com/primitives/docs/components/select#trigger).
  */
 const Trigger = React.forwardRef<
   React.ElementRef<typeof RadixSelect.Trigger>,
-  React.ComponentPropsWithoutRef<typeof RadixSelect.Trigger>
->(({ className, children, ...props }, ref) => {
+  SelectTriggerProps
+>(({ className, children, hideIcon = false, ...props }, ref) => {
   const { size } = useSelectContext()
 
   return (
@@ -107,9 +112,11 @@ const Trigger = React.forwardRef<
       {...props}
     >
       {children}
-      <RadixSelect.Icon asChild>
-        <TrianglesMini className="text-ui-fg-muted group-disabled/trigger:text-ui-fg-disabled" />
-      </RadixSelect.Icon>
+      {!hideIcon && (
+        <RadixSelect.Icon asChild>
+          <TrianglesMini className="text-ui-fg-muted group-disabled/trigger:text-ui-fg-disabled" />
+        </RadixSelect.Icon>
+      )}
     </RadixSelect.Trigger>
   )
 })

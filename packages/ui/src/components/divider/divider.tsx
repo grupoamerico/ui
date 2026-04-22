@@ -51,3 +51,4 @@ Divider.displayName = "Divider"
 const Separator = Divider
 
 export { Divider, Separator }
+export type { DividerProps }

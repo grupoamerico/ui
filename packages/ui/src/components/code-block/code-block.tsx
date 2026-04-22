@@ -1,7 +1,7 @@
 "use client"
 import { Highlight, Prism, themes } from "prism-react-renderer"
 import * as React from "react"
-;(typeof global !== "undefined" ? global : window).Prism = Prism
+;(typeof globalThis !== "undefined" ? globalThis : window).Prism = Prism
 
 // @ts-ignore
 import("prismjs/components/prism-json")
