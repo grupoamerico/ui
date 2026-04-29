@@ -138,11 +138,14 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
      */
     const renderInner = () => {
       if (isLoading) {
+        // `display: contents` on the wrapper keeps the button's flex layout
+        // for `children` (preserves gap-x and item alignment) while still
+        // giving Slot.Root a single React child when `asChild` is true.
         return (
-          <span className="pointer-events-none">
+          <span className="contents">
             <div
               className={clx(
-                "bg-ui-bg-disabled absolute inset-0 flex items-center justify-center rounded-md"
+                "bg-ui-bg-disabled pointer-events-none absolute inset-0 flex items-center justify-center rounded-md"
               )}
             >
               <Spinner className="animate-spin" />
