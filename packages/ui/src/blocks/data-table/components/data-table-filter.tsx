@@ -216,7 +216,7 @@ const DataTableFilter = ({ id, filter, isNew = false, onUpdate, onRemove }: Data
           <>
             {(type === "select" || type === "multiselect" || type === "radio") && (
               <div className="flex items-center border-r px-2 py-1 text-ui-fg-muted">
-                is
+                es
               </div>
             )}
             <Popover.Trigger asChild>
@@ -618,7 +618,7 @@ const DataTableFilterSelectContent = ({
         <input
           value={search}
           onChange={(e) => setSearch(e.target.value)}
-          placeholder="Search..."
+          placeholder="Buscar..."
           className="h-8 flex-1 bg-transparent text-sm outline-none placeholder:text-ui-fg-muted"
           autoFocus
         />
@@ -635,7 +635,7 @@ const DataTableFilterSelectContent = ({
       <div className="max-h-[300px] overflow-auto p-1">
         {filteredOptions.length === 0 && (
           <div className="py-6 text-center text-sm text-ui-fg-muted">
-            No results found
+            Sin resultados
           </div>
         )}
 
@@ -946,7 +946,7 @@ const DataTableFilterMultiselectContent = ({
         <input
           value={search}
           onChange={(e) => setSearch(e.target.value)}
-          placeholder="Search..."
+          placeholder="Buscar..."
           className="h-8 flex-1 bg-transparent text-sm outline-none placeholder:text-ui-fg-muted"
           autoFocus
         />
@@ -963,7 +963,7 @@ const DataTableFilterMultiselectContent = ({
       <div className="max-h-[300px] overflow-auto p-1">
         {filteredOptions.length === 0 && (
           <div className="py-6 text-center text-sm text-ui-fg-muted">
-            No results found
+            Sin resultados
           </div>
         )}
 
@@ -1196,11 +1196,11 @@ const DataTableFilterNumberContent = ({
   }, [instance, id, value, operator, includeOperators, onUpdate])
 
   const operators = [
-    { value: "eq", label: "Equals" },
-    { value: "gt", label: "Greater than" },
-    { value: "gte", label: "Greater than or equal" },
-    { value: "lt", label: "Less than" },
-    { value: "lte", label: "Less than or equal" },
+    { value: "eq", label: "Igual a" },
+    { value: "gt", label: "Mayor que" },
+    { value: "gte", label: "Mayor o igual" },
+    { value: "lt", label: "Menor que" },
+    { value: "lte", label: "Menor o igual" },
   ]
 
   return (

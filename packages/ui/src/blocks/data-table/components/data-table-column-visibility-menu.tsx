@@ -57,7 +57,7 @@ const DataTableColumnVisibilityMenu = ({
         </DropdownMenu.Trigger>
       </Wrapper>
       <DropdownMenu.Content align="end" className="min-w-[200px] max-h-[400px] overflow-hidden">
-        <DropdownMenu.Label>Toggle columns</DropdownMenu.Label>
+        <DropdownMenu.Label>Mostrar columnas</DropdownMenu.Label>
         <DropdownMenu.Separator />
         <DropdownMenu.Item
           onSelect={(e: Event) => {
@@ -69,7 +69,7 @@ const DataTableColumnVisibilityMenu = ({
             <Checkbox
               checked={allColumnsVisible ? true : (someColumnsVisible && !allColumnsVisible) ? "indeterminate" : false}
             />
-            <span>Toggle all</span>
+            <span>Todas</span>
           </div>
         </DropdownMenu.Item>
         <DropdownMenu.Separator />

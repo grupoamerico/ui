@@ -25,7 +25,7 @@ interface LocalFilter {
 }
 
 const DataTableFilterBar = ({
-  clearAllFiltersLabel = "Clear all",
+  clearAllFiltersLabel = "Limpiar filtros",
   alwaysShow = false,
   sortingTooltip,
   columnsTooltip,
