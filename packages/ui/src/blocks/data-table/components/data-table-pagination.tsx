@@ -5,12 +5,17 @@ import * as React from "react"
 import { useDataTableContext } from "../context/use-data-table-context"
 import { Skeleton } from "../../../components/skeleton"
 import { Table } from "../../../components/table"
+import { clx } from "../../../utils/clx"
 
 interface DataTablePaginationProps {
   /**
    * The translations for strings in the pagination component.
    */
   translations?: React.ComponentProps<typeof Table.Pagination>["translations"]
+  /**
+   * Additional classes to pass to the pagination wrapper.
+   */
+  className?: string
 }
 
 /**
@@ -32,7 +37,7 @@ const DataTablePagination = (props: DataTablePaginationProps) => {
   return (
     <Table.Pagination
       translations={props.translations}
-      className="flex-shrink-0"
+      className={clx("flex-shrink-0", props.className)}
       canNextPage={instance.getCanNextPage()}
       canPreviousPage={instance.getCanPreviousPage()}
       pageCount={instance.getPageCount()}
