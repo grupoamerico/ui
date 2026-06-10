@@ -98,6 +98,14 @@ interface DataTableOptions<TData>
     row: TData
   ) => void
   /**
+   * The function to execute when a row is right-clicked (contextmenu).
+   * Call `event.preventDefault()` to suppress the native browser menu.
+   */
+  onRowContextMenu?: (
+    event: React.MouseEvent<HTMLTableRowElement, MouseEvent>,
+    row: TData
+  ) => void
+  /**
    * The total count of rows. When working with pagination, this will be the total
    * number of rows available, not the number of rows currently being displayed.
    */
@@ -164,6 +172,10 @@ interface UseDataTableReturn<TData>
     event: React.MouseEvent<HTMLTableRowElement, MouseEvent>,
     row: TData
   ) => void
+  onRowContextMenu?: (
+    event: React.MouseEvent<HTMLTableRowElement, MouseEvent>,
+    row: TData
+  ) => void
   emptyState: DataTableEmptyState
   isLoading: boolean
   showSkeleton: boolean
@@ -190,6 +202,7 @@ const useDataTable = <TData,>({
   pagination,
   search,
   onRowClick,
+  onRowContextMenu,
   autoResetPageIndex = true,
   isLoading = false,
   columnVisibility,
@@ -529,6 +542,7 @@ const useDataTable = <TData,>({
     getRowSelection,
     // Handlers
     onRowClick,
+    onRowContextMenu,
     // Empty State
     emptyState,
     // Loading

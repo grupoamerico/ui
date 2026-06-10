@@ -292,6 +292,7 @@ const DataTableTable = (props: DataTableTableProps) => {
                         onMouseEnter={() => (hoveredRowId.current = row.id)}
                         onMouseLeave={() => (hoveredRowId.current = null)}
                         onClick={(e) => instance.onRowClick?.(e, row)}
+                        onContextMenu={(e) => instance.onRowContextMenu?.(e, row)}
                         className={clx("group/row last-of-type:border-b-0", {
                           "cursor-pointer": !!instance.onRowClick,
                         })}
@@ -456,6 +457,7 @@ const DataTableTable = (props: DataTableTableProps) => {
                       onMouseEnter={() => (hoveredRowId.current = row.id)}
                       onMouseLeave={() => (hoveredRowId.current = null)}
                       onClick={(e) => instance.onRowClick?.(e, row)}
+                      onContextMenu={(e) => instance.onRowContextMenu?.(e, row)}
                       className={clx("group/row last-of-type:border-b-0", {
                         "cursor-pointer": !!instance.onRowClick,
                       })}
